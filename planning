@@ -1,0 +1,77 @@
+Element of the game:
+gameInterval
+
+Timer:
+	start
+	stop
+	reset
+	gameInterval = setInterval(gameClock, 1000);
+	
+
+
+Game Play:
+	when user click on button:
+		1. correct
+		2. incorrect
+
+Questionaires
+	array of questions, answers, and images
+
+
+Step:
+1. Initialize Game
+	1. Hide 
+		a. MCQ Buttons
+		b. Answer
+		c. YesNo
+		d. Image
+		e. Timer
+	2. Show Start Button
+	3. set index = 0 for questionaire array. 
+
+2. User click on Start button:
+	1 Timer start
+		a. Display timer
+	2. First question pop
+		a. Display question and MCQ Buttons
+	3. Hide 
+		a. answer, 
+		b. image, and 
+		c. YesNo
+
+
+3. User click on MCQ Buttons
+	1. Correct answer
+	2. Timeout for 5 seconds and do this
+		a. Display 
+			i.   Yes/No
+			ii.  Image
+			iii. Answer
+		b. Hide
+			i.   Question
+			ii.  MCQButtons
+		c. Reset time = 30
+
+	3. Get next question
+	4. Reset timer
+
+	5. Incorrect answer
+	6. Timeout and do this
+		a. Display 
+			i.   Yes/No
+			ii.  Image
+			iii. Answer
+		b. Hide
+			i.   Question
+			ii.  MCQButtons
+		c. Reset time = 30
+	7. Get next question
+	8. Reset timer
+
+4. Increase index by 1
+	1. If index is lesser than questionaire.length
+		do 2.1. 
+	2. Else
+		Game Over
+			b. show start button
+
