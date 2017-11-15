@@ -1,37 +1,80 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<title>Trival Game </title>
+	<title>Trivia Game </title>
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="icon" type="image/jpg" href="http://www.dalessandroegalli.com/images/events/thumbs/236.jpg?t=1452720982">
+	<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Frijole|Shojumaru" rel="stylesheet">
 
 </head>
 <body>
-	<h1>Trival Game!</h1>
-	<div class="jumbotron">
-		<div class="container text-center">
-			<div class="divTimer"></div>
-			<div class="divQuestion"></div>
-			<div class="divMultipleChoices">
-				<div class="btn btn-default btn-a"></div>
-				<div class="btn btn-default btn-b"></div>
-				<div class="btn btn-default btn-c"></div>
-				<div class="btn btn-default btn-d"></div>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid clearfix">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		    <span class="sr-only">Toggle navigation</span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		    <span class="icon-bar"></span>
+		  </button>
+		  <a class="navbar-brand" href="#">Trivia Game</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		  <ul class="nav navbar-nav">
+		    <li class="active"><a href="index.html">Game <span class="sr-only">(current)</span></a></li>
+		    <li class="dropdown">
+          <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Trivia Category <span class="caret"></span></a>
+          <ul class="dropdown-menu active">
+            <li class="active li-cat li-cat1" value="The Ice Breaker"><a class="cat1 cat" value="1" href="#">The Ice Breaker</a></li>
+            <li class="li-cat li-cat2" value="Movies Trivia"><a class="cat2 cat" value="2" href="#">Movies Trivia</a></li>
+            <li class="li-cat li-cat3" value="Computer Trivia"><a class="cat3 cat" value="3" href="#">Computer Trivia</a></li>
+            <li class="li-cat li-cat4" value="Dog Trivia"><a class="cat4 cat" value="4" href="#">Dog Trivia</a></li>
+            <li class="li-cat li-cat5" value="Basketball Trivia"><a class="cat5 cat" value="5" href="#">Basketball Trivia</a></li>
+          </ul>
+        </li>
+		  </ul>
+		  <ul class="nav navbar-nav navbar-right">
+		  	<li><a id="navAudio" class="play" href="#">
+			  		<span id="audio_on" class="glyphicon glyphicon-volume-down " aria-hidden="true"></span>
+			  		<span id="audio_mute" class="glyphicon glyphicon glyphicon-volume-off" aria-hidden="true"></span>
+		  			Audio
+		  	</a>
+		  </li>
+		    <li><a href="instruction.html"><span class="glyphicon glyphicon-wrench " aria-hidden="true"></span> Instruction</a></li>
+		  </ul>
+		</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+	<div class="wrapper">
+		<h1 class="h1">Trivia Game!</h1>
+		<h2 class="h2 title"></h2>
+		<div class="jumbotron">
+			<div class="container-fluid text-center">
+				<h3 class="divTimer"></h3>
+				<h3 class="divQuestion"></h3>
+				<div class="divMultipleChoices">
+					<div class="btn btn-default btn-a"></div>
+					<div class="btn btn-default btn-b"></div>
+					<div class="btn btn-default btn-c"></div>
+					<div class="btn btn-default btn-d"></div>
+				</div>
+				<div class="divYesNo"></div>
+				<div class="divAnswer"></div>
+				<img class="imgImage" />
+				<div class="divSummary"></div>
+				<button id="btnStart" class="btn btn-default btn-success btn-lg" type="submit">Start</button>
 			</div>
-			<div class="divYesNo"></div>
-			<div class="divAnswer"></div>
-			<img class="imgImage" />
-			<div class="divSummary"></div>
-			<button id="btnStart" class="btn btn-default btn-success" type="submit">Start</button>
 		</div>
 	</div>
-
 
 	
 	<!-- jQuery, javascript file for the Bootstrap's javascript file to function -->

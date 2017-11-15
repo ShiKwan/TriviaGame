@@ -1,5 +1,32 @@
 //https://hobbylark.com/party-games/FreeFun100QuestionQuiz 
 $(document).ready(function(){
+	
+	var winSound = new Audio("assets/audio/win.mp3");
+	var loseSound = new Audio("assets/audio/lose.mp3");
+	var backgroundMusic = new Audio("assets/audio/background-music.mp3");
+	function pauseAudio(){
+		if(document.getElementById("navAudio").classList.contains('play')){
+			document.getElementById("navAudio").classList.add('mute');
+			document.getElementById("navAudio").classList.remove('play');
+			document.getElementById("audio_on").style.display = "none";
+			document.getElementById("audio_mute").style.display = "inline";
+			backgroundMusic.pause();
+			backgroundMusic.currentTime = 0;
+		}else if(document.getElementById("navAudio").classList.contains('mute')){
+			document.getElementById("navAudio").classList.add('play');
+			document.getElementById("navAudio").classList.remove('mute');
+			document.getElementById("audio_on").style.display = "inline";
+			document.getElementById("audio_mute").style.display = "none";
+			backgroundMusic.play();	
+		}
+	}
+	backgroundMusic.addEventListener('ended', function() {
+	    this.currentTime = 0;
+	    this.play();
+	}, false);
+	backgroundMusic.play();	
+	$("#navAudio").click(pauseAudio);
+
 	//The ten easy ice breaker
 	const q1 = {
 		question: "Who was the legendary Benedictine monk who invented champagne?",
@@ -60,9 +87,9 @@ $(document).ready(function(){
 		image: "q9.gif"
 	}
 	const q10 = {
-		question: "What item of clothing was named after its Scottish Invenotr?",
-		answer: "Louis Pasteur",
-		mcq: ["William Harvey", "Louis Pasteur", "Sigmund Freud", "Havelock Ellis" ],
+		question: "Who is remembered for his large and stylish signature on the United States Declaration of Independence?",
+		answer: "John Hancock",
+		mcq: ["Henry Ford", "John D. Rockefeller", "John Hancock", "William Henry Vanderbilt" ],
 		image: "q10.gif"
 	}
 //Movie
@@ -110,7 +137,7 @@ $(document).ready(function(){
 	}
 
 	const q17 = {
-		question: 'In Disney''s "The Little Mermaid" what is the name of the human that Ariel falls in love with?',
+		question: 'In Disney\'s "The Little Mermaid" what is the name of the human that Ariel falls in love with?',
 		answer: "Prince Eric",
 		mcq: ["Prince Philip", "Prince Edward", "Prince William", "Prince Eric" ],
 		image: "q17.gif"
@@ -135,12 +162,234 @@ $(document).ready(function(){
 		mcq: ["Pamela Anderson", "Sabine Wren", "Aayla Secura", "Padmé Amidala" ],
 		image: "q20.gif"
 	}
+	//Computer
+	const q21 = {
+		question: "In a photo editing program, what do the letters RGB stand for?",
+		answer: "Red, Green & Blue",
+		mcq: ["Reduction Gear Box", "Red, Green & Blue", "Red Giant Branch", "Regional General Board" ],
+		image: "q21.gif"
+	}
+	const q22 = {
+		question: "What do you call the small image icons used to express emotions or ideas in digital communication?",
+		answer: "Emoji",
+		mcq: ["Favicon", "Emoji", "Stickers", "Meme" ],
+		image: "q22.gif"
+	}
+	const q23 = {
+		question: "When referring to a computer monitor, what does the acronym LCD stand for?",
+		answer: "Liquid Crystal Display",
+		mcq: ["Liquid Crystal Decoder", "Liquid Computer Display", "Laser Crystal Display", "Liquid Crystal Display" ],
+		image: "q23.gif"
+	}
+	const q24 = {
+		question: "When talking about computer memory, what does the acronym ROM stand for?",
+		answer: "Read-only memory",
+		mcq: ["Red-only memory", "Radiant-object memory", "Read-only memory", "Red-object memory" ],
+		image: "q24.gif"
+	}
+	const q25 = {
+		question: "In 1975 an engineer created the first electronic camera while working for what company?",
+		answer: "Kodak",
+		mcq: ["Kodak", "Epson", "Nikon", "Canon" ],
+		image: "q25.gif"
+	}
+	const q26 = {
+		question: "Nintendo is a consumer electronics and video game company founded in what country?",
+		answer: "Japan",
+		mcq: ["United States", "Taiwan", "Japan", "Korea" ],
+		image: "q26.gif"
+	}
+	const q27 = {
+		question: "HTML and CSS are computer languages used to create what?",
+		answer: "Websites",
+		mcq: ["Websites", "Database", "Hardware", "Keyboard" ],
+		image: "q27.gif"
+	}
+	const q28 = {
+		question: "The first person shooter video game Doom was first released in what year?",
+		answer: "1993",
+		mcq: ["1882", "2000", "1993", "1989" ],
+		image: "q28.gif"
+	}
+	const q29 = {
+		question: 'What does the acronym "lol" stand for when used in phone texts and on the internet?',
+		answer: "Laugh out loud",
+		mcq: ["Lots of love", "Laugh out loud", "Lost ol' lonely", "Little Old Lady" ],
+		image: "q29.gif"
+	}
+	const q30 = {
+		question: "In what year was the first Apple computer released?",
+		answer: "1976",
+		mcq: ["1990", "1988", "1957", "1976" ],
+		image: "q30.gif"
+	}
 
-	Antwon Tony Rocky Horror should have damn well known not to touch another man's wife's feet. As a result, he was:
-
+//Dog Triva
+	const q31 = {
+		question: "The Chihuahua is a breed of dog believed to originate from what country?",
+		answer: "Mexico",
+		mcq: ["Nicaragua", "Mexico", "China", "England" ],
+		image: "q31.gif"
+	}
+	const q32 = {
+		question: "What is the most popular breed of dog in the United States?",
+		answer: "Labrador Retriever",
+		mcq: ["Labrador Retriever", "Golden Retriever", "Huskies", "Akita" ],
+		image: "q32.gif"
+	}
+	const q33 = {
+		question: "A puggle is a cross between which two dog breeds?",
+		answer: "Pug and Beagle",
+		mcq: ["Pig and Beagle", "Poodle and Bagel", "Poodle and Beagle", "Pug and Beagle" ],
+		image: "q33.gif"
+	}
+	const q34 = {
+		question: "How many chambers are there in a dog's heart?",
+		answer: "Four",
+		mcq: ["Four", "Three", "Two", "One" ],
+		image: "q34.gif"
+	}
+	const q35 = {
+		question: "In the United States which breed of dog is commonly known as a firehouse dog?",
+		answer: "Dalmatian",
+		mcq: ["Malinois", "Dalmatian", "Dutch Shepherd", "Bloodhound" ],
+		image: "q35.gif"
+	}
+	const q36 = {
+		question: "Through what part of the body do dogs sweat?",
+		answer: "Paws",
+		mcq: ["Paws", "Mouth", "Nose", "Nose" ],
+		image: "q36.gif"
+	}
+	const q37 = {
+		question: "What is the favorite dog breed of the Queen of England?",
+		answer: "Corgi",
+		mcq: ["Corgi", "Basenji", "Poodle", "Pomeranian" ],
+		image: "q37.gif"
+	}
+	const q38 = {
+		question: "The dingo is a free ranging dog found mainly in which country?",
+		answer: "Australia",
+		mcq: ["United States", "Australia", "Austria", "Italy" ],
+		image: "q38.gif"
+	}
+	const q39 = {
+		question: "What trick is the most commonly taught to dogs?",
+		answer: "Sit",
+		mcq: ["Sit", "Shake", "Come", "Stay" ],
+		image: "q39.gif"
+	}
+	const q40 = {
+		question: "When Pluto made his debut in 1930 in a Mickey Mouse film, what was his name?",
+		answer: "Rover",
+		mcq: ["Balzac", "Pupper", "Rover", "Dover" ],
+		image: "q40.gif"
+	}
+	const q41 = {
+		question: "Who is the only head basketball coach to win both an NCAA national championship and an NBA title?",
+		answer: "Larry Brown",
+		mcq: ["Mike Krzyewski", "Larry Brown", "Adolp Rupp", "Roy Williams" ],
+		image: "q41.gif"
+	}
+	const q42 = {
+		question: "According to NBA rules how long does a player have after catching the ball to shoot a free throw?",
+		answer: "10 seconds",
+		mcq: ["10 seconds", "12 seconds", "5 seconds", "8 seconds" ],
+		image: "q42.gif"
+	}
+	const q43 = {
+		question: "What is the regulation height for a basketball hoop?",
+		answer: "10ft",
+		mcq: ["9.5ft", "11ft", "9ft", "10ft" ],
+		image: "q43.gif"
+	}
+	const q44 = {
+		question: "Who was the shortest player ever to play in the NBA?",
+		answer: "Tyrone Bogues",
+		mcq: ["Jeremy Lin", "Isiah Thomas", "Tyrone Bogues", "Allen Iverson" ],
+		image: "q44.gif"
+	}
+	const q45 = {
+		question: "Which basketball team did Michael Jordan play for in college?",
+		answer: "UNC",
+		mcq: ["UCLA", "UNC", "USC", "UPenn" ],
+		image: "q45.gif"
+	}
+	const q46 = {
+		question: 'What Indiana Pacer did Knicks fan Spike Lee anger during the 1994 playoffs by calling him "Cheryl"?',
+		answer: "Reggie Miller",
+		mcq: ["Adrian Dantley", "George McGinnis", "Ron Artest", "Reggie Miller" ],
+		image: "q46.gif"
+	}
+	const q47 = {
+		question: "What franchise has played in the most NBA finals since 1947?",
+		answer: "Lakers",
+		mcq: ["Lakers", "Boston", "Bulls", "Pacer" ],
+		image: "q47.gif"
+	}
+	const q48 = {
+		question: 'What future NBA star was dubbed "Boy Gorge" when his weight passed 300 pounds in college?',
+		answer: "Charles Barkley",
+		mcq: ["Shaquille O'Neal", "Charles Barkley", "Brian Scalabrine", "Boris Diaw" ],
+		image: "q48.gif"
+	}
+	const q49 = {
+		question: 'What L.A. Lakers great might have played for Chicago if the Bulls had called "tails" in a 1979 NBA coin toss?',
+		answer: "Magic Johnson",
+		mcq: ["Magic Johnson", "Kobe Bryant", "Kareem Abdul-Jabbar", "Wilt Chamberlain" ],
+		image: "q49.gif"
+	}
+	const q50 = {
+		question: 'What Chicago Bulls coach has checked into hotels under the pseudonym "Mr. Red Cloud"?',
+		answer: "Phil Jackson",
+		mcq: ["Jerry Sloan", "Phil Jackson", "Larry Costello", "Tim Floyd" ],
+		image: "q50.gif"
+	}
 	var questionaire = [];
 
-	questionaire =[q1,q2,q3,q4, q5];
+	$(".cat").click(function(){
+		$(".li-cat").removeClass("active");
+		console.log("questionaires" + questionaire);
+		gameOver();
+		match.reset();
+		match.stop();
+		$(".divSummary").hide();
+		index = 0;
+		questionaire =[];
+		if($(this).attr("value") == 1){
+			questionaire = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+			console.log("questionaires1" + questionaire);
+			$(".li-cat1").addClass("active");
+			$(".title").html("Category : " + $(".active.li-cat").attr("value"));
+		}
+		if($(this).attr("value") == 2){
+			questionaire = [q11, q12, q13, q14, q15, q16, q17, q18, q19, q20];
+			console.log("questionaires2" + questionaire);
+			$(".li-cat2").addClass("active");
+			$(".title").html("Category : " + $(".active.li-cat").attr("value"));
+		}
+		if($(this).attr("value") == 3){
+			questionaire = [q21, q22, q23, q24, q25, q26, q27, q28, q29, q30];
+			console.log("questionaires3" + questionaire);
+			$(".li-cat3").addClass("active");
+			$(".title").html("Category : " + $(".active.li-cat").attr("value"));
+		}
+		if($(this).attr("value") == 4){
+			questionaire = [q31, q32, q33, q34, q35, q36, q37, q38, q39, q40];
+			console.log("questionaires4" + questionaire);
+			$(".li-cat4").addClass("active");
+			$(".title").html("Category : " + $(".active.li-cat").attr("value"));
+		}
+		if($(this).attr("value") == 5){
+			questionaire = [q41, q42, q43, q44, q45, q46, q47, q48, q49, q50];
+			console.log("questionaires5" + questionaire);
+			$(".li-cat5").addClass("active");
+			$(".title").html("Category : " + $(".active.li-cat").attr("value"));
+		}
+		$("#btnStart").show();
+	})
+	
+	
 
 	//  Variable that will hold our setInterval that runs the stopwatch
 	var guessTimer;
@@ -180,7 +429,7 @@ $(document).ready(function(){
 		    console.log(match.time);
 	    }else if(match.time ===0){
 	    	console.log("times up!");
-	    	$("divYesNo").html("<h1>Unanswered</h1>")
+	    	userAnswerCorrectly = 3;
 	    	timeOutAnswer();
 	    	index++;	
 			if(index < questionaire.length){
@@ -226,10 +475,15 @@ $(document).ready(function(){
 		$(".divYesNo").show();
 		$(".imgImage").show();
 		$(".divTimer").hide();
-		if(userAnswerCorrectly){
-			$(".divYesNo").html("Correct!");
-		}else{
-			$(".divYesNo").html("False!");
+		if(userAnswerCorrectly == 1){
+			winSound.play();
+			$(".divYesNo").html("<h1>Correct!</h1>");
+		}else if(userAnswerCorrectly == 2){
+			loseSound.play();
+			$(".divYesNo").html("<h1>False!</h1>");
+		}else if(userAnswerCorrectly == 3){
+			loseSound.play();
+			$(".divYesNo").html("Unaswered");
 		}
 		$(".divAnswer").html("Correct answer is .. " + $(".divQuestion").attr("value"));
 		$(".imgImage").attr("src", "assets/images/" + questionaire[index].image);
@@ -274,11 +528,12 @@ $(document).ready(function(){
 		match.reset();
 	}
 	var index = 0;
-	var userAnswerCorrectly = false;
+	var userAnswerCorrectly = 0;
 	$(".divMultipleChoices").hide();
-
+	questionaire = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
+	$(".title").html("Category : " + $(".active.li-cat").attr("value"));
 	$("#btnStart").click(function(){
-			$(this).hide();
+			$("#btnStart").hide();
 			match.start();
 			newQuestion(index);
 			$(".divMultipleChoices").show();
@@ -289,10 +544,10 @@ $(document).ready(function(){
 
 	$(".divMultipleChoices .btn").click(function(){
 		if($(this).text() === $(".divQuestion").attr("value")){
-			userAnswerCorrectly = true;
+			userAnswerCorrectly = 1;
 			correctAnswer(index);
 		}else if($(this).text() !== $(".divQuestion").attr("value")){
-			userAnswerCorrectly = false;
+			userAnswerCorrectly = 2;
 			incorrectAnswer(index);
 		}
 		index++;	
