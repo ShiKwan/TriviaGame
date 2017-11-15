@@ -1,6 +1,6 @@
 //https://hobbylark.com/party-games/FreeFun100QuestionQuiz 
 $(document).ready(function(){
-
+	//The ten easy ice breaker
 	const q1 = {
 		question: "Who was the legendary Benedictine monk who invented champagne?",
 		answer: "Dom Perignon",
@@ -30,11 +30,113 @@ $(document).ready(function(){
 	}
 
 	const q5 = {
-		question: "What item of clothing was named after its Scottish Invenotr?",
+		question: "What item of clothing was named after its Scottish Inventor?",
 		answer: "Mackintosh",
 		mcq: ["Mackintosh", "Stirring", "Pelamis", "Drummond Light" ],
 		image: "q5.gif"
 	}
+	const q6 = {
+		question: "What kind of weapon is a falchion?",
+		answer: "Sword",
+		mcq: ["Sword", "Mace", "Javelin", "Dagger" ],
+		image: "q6.gif"
+	}
+	const q7 = {
+		question: "Which word goes before vest, beans and quartet?",
+		answer: "String",
+		mcq: ["Keyboard", "String", "Percussion", "Wood Wind" ],
+		image: "q7.gif"
+	}
+	const q8 = {
+		question: "What is another word for lexicon?",
+		answer: "Dictionary",
+		mcq: ["Composer", "Old Testament", "Pelamis", "Dictionary" ],
+		image: "q8.gif"
+	}
+	const q9 = {
+		question: "Name the seventh planet from the sun",
+		answer: "Uranus",
+		mcq: ["Venus", "Mars", "Uranus", "Neptune" ],
+		image: "q9.gif"
+	}
+	const q10 = {
+		question: "What item of clothing was named after its Scottish Invenotr?",
+		answer: "Louis Pasteur",
+		mcq: ["William Harvey", "Louis Pasteur", "Sigmund Freud", "Havelock Ellis" ],
+		image: "q10.gif"
+	}
+//Movie
+
+	const q11 = {
+		question: "Bruce Banner turns into what fictional superhero when he becomes angry?",
+		answer: "Hulk",
+		mcq: ["Hulk", "Deadpool", "Frankenstein", "Wolverine" ],
+		image: "q11.gif"
+	}
+
+	const q12 = {
+		question: "Who played the female lead in the 1990 romantic comedy Pretty Woman?",
+		answer: "Julia Robert",
+		mcq: ["Jessica Alba", "Halle Berry", "Jennifer Aniston", "Julia Robert" ],
+		image: "q12.gif"
+	}
+
+	const q13 = {
+		question: 'Which actor played Marty McFly in the 1980s sci-fi classic "Back to the Future"?',
+		answer: "Michael J. Fox",
+		mcq: ["Bob Gale", "Christopher Lloyd", "Michael J. Fox", "Johnny Depp" ],
+		image: "q13.gif"
+	}
+
+	const q14 = {
+		question: "Actress Gal Gadot starred in what American superhero film released in the summer of 2017?",
+		answer: "Wonder Woman",
+		mcq: ["Super Girl", "Cat Woman", "Wonder Woman", "Black Widow" ],
+		image: "q14.gif"
+	}
+
+	const q15 = {
+		question: "Who played the lead role in the 1982 American comedy Tootsie?",
+		answer: "Louis Pasteur",
+		mcq: ["Dustin Hoffman", "Dabney Coleman", "Bill Murray", "Charles Durning" ],
+		image: "q15.gif"
+	}
+
+	const q16 = {
+		question: 'Who played the female lead in the dystopian political thriller "V for Vendetta"?',
+		answer: "Natalie Portman",
+		mcq: ["Natalie Portman", "Claire Danes", "Courtney Love", "Larisa Oleynik" ],
+		image: "q16.gif"
+	}
+
+	const q17 = {
+		question: 'In Disney''s "The Little Mermaid" what is the name of the human that Ariel falls in love with?',
+		answer: "Prince Eric",
+		mcq: ["Prince Philip", "Prince Edward", "Prince William", "Prince Eric" ],
+		image: "q17.gif"
+	}
+
+	const q18 = {
+		question: "What is the name of the animated science fiction comedy-drama film released in 2002 about a Hawaiin girl and her unusual pet?",
+		answer: "Lilo & Stitch",
+		mcq: ["Tora Tora Tora!", "Godzilla", "Lilo & Stitch", "Aloha Scooby Doo!" ],
+		image: "q18.gif"
+	}
+
+	const q19 = {
+		question: "In movie ratings what do the letters PG stand for?",
+		answer: "Parental Guidance",
+		mcq: ["Point Guard", "Parent Guide", "Parental Guidance", "Pottery Garne" ],
+		image: "q19.gif"
+	}
+	const q20 = {
+		question: "In the Star Wars universe, who is Luke Skywalker's mother?",
+		answer: "Padmé Amidala",
+		mcq: ["Pamela Anderson", "Sabine Wren", "Aayla Secura", "Padmé Amidala" ],
+		image: "q20.gif"
+	}
+
+	Antwon Tony Rocky Horror should have damn well known not to touch another man's wife's feet. As a result, he was:
 
 	var questionaire = [];
 
@@ -78,10 +180,10 @@ $(document).ready(function(){
 		    console.log(match.time);
 	    }else if(match.time ===0){
 	    	console.log("times up!");
-	    	userAnswerCorrectly = false;
+	    	$("divYesNo").html("<h1>Unanswered</h1>")
 	    	timeOutAnswer();
 	    	index++;	
-			if(index <= questionaire.length){
+			if(index < questionaire.length){
 				setTimeout(function(){
 					newQuestion(index);	
 				},5000)
@@ -145,6 +247,9 @@ $(document).ready(function(){
 		$("#btnStart").show();
 		$(".divTimer").hide();
 		index = 0;
+		correct = 0;
+		incorrect = 0;
+		unanswered = 0;
 	}
 	function correctAnswer(index){
 		correct++;
@@ -177,15 +282,12 @@ $(document).ready(function(){
 			match.start();
 			newQuestion(index);
 			$(".divMultipleChoices").show();
-			console.log("here2");
 			$(".divAnswer").hide();
 			$(".divYesNo").hide();
 			$(".imgImage").hide();
-			console.log("here3");	
 	});
 
 	$(".divMultipleChoices .btn").click(function(){
-		console.log("here");
 		if($(this).text() === $(".divQuestion").attr("value")){
 			userAnswerCorrectly = true;
 			correctAnswer(index);
