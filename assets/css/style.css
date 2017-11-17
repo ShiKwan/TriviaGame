@@ -33,6 +33,10 @@ html body{
 	background-color: rgba(0, 0, 0, 0.2);
 }
 
+.jumbotron.instruction{
+	background-color: rgba(255, 255, 255, 1);	
+	font-family: arial;
+}
 .divMultipleChoices .btn{
 	margin: 50px 20px 0 20px;
 }
